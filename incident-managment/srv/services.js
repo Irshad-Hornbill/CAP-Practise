@@ -5,6 +5,7 @@ class ProcessorService extends cds.ApplicationService {
   init() {
     this.before("UPDATE", "Incidents", (req) => this.onUpdate(req));
     this.before("CREATE", "Incidents", (req) => this.changeUrgencyDueToSubject(req.data));
+    this.before("DELETE", "Incidents", () => this.outputData());
 
     return super.init();
   }
@@ -14,6 +15,9 @@ class ProcessorService extends cds.ApplicationService {
     if (urgent) data.urgency_code = 'H'
   }
 
+  outputData(){
+    console.log("A incident is deleted");
+  }
   /** Custom Validation */
   async onUpdate (req) {
     let closed = await SELECT.one(1) .from (req.subject) .where `status.code = 'C'`
