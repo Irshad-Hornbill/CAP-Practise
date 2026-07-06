@@ -5,10 +5,12 @@
     "@sap/cds": "^9"
   },
   "devDependencies": {
+    "@cap-js/cds-test": "^1.0.1",
     "@cap-js/sqlite": "^2.4",
     "cds-plugin-ui5": "^0.17.0"
   },
   "scripts": {
+    "test": "npx jest tests/test.js",
     "start": "cds-serve",
     "watch-incidents": "cds watch --open ns.incidents/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
@@ -18,7 +20,7 @@
         "auth": {
           "kind": "mocked",
           "users": {
-            "irshu": {
+            "alice": {
               "roles": [
                 "support"
               ]
