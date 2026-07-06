@@ -1,8 +1,6 @@
 const cds = require('@sap/cds/lib')
-const { default: axios } = require('axios')
-const { GET, POST, DELETE, PATCH, expect } = cds.test(__dirname + '../../')
+const { GET, POST, DELETE, PATCH, expect, axios } = cds.test(__dirname + '/..')
 
-// ✅ FIX: Add password to Basic Auth
 axios.defaults.auth = { username: 'alice', password: '' }
 
 jest.setTimeout(11111)
