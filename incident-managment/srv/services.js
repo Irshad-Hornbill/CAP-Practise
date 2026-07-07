@@ -22,7 +22,7 @@ class ProcessorService extends cds.ApplicationService {
     let result = await this.S4bupa.run(SELECT.from(BusinessPartner, bp => [
       bp`*`,
       bp.addresses(address => [
-        address`email`,
+        // address`email`,
         address.email(emails => [
           emails`email`
         ])
